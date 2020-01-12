@@ -1,0 +1,11 @@
+<h2>Where you have been</h2>
+
+<ul>
+  <% locations.forEach(function (location) { %>
+    <li class="a-center"><%= location.place.coordinates %></li>
+  <% }); %>
+</ul>
+
+<div class="a-center">
+  <a href="/">go back</a>
+</div>

@@ -1,0 +1,62 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#map {
+  height: 80vh;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.buttons-container {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.btn {
+  border: 1px solid;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  outline: 0;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.btn.save {
+  border-color: #4cae4c;
+  background: #5cb85c;
+}
+
+.btn.save:disabled {
+  background: #ddd;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn.list {
+  border-color: #d9534f;
+  background: #d43f3a;
+}
+
+.a-center {
+  text-align: center;
+}
