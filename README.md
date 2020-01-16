@@ -13,19 +13,21 @@ Go to your _Account settings_ page and add a credit card. It will not be charged
 Go back to your app's overview page and select _Configure Add-ons_, type _MongoDB_ and select _mLab MongoDB_,
 with the free Sandbox option.
 
-Now, click on the _Deploy_ tab and _Connect to GitHub_.
+You need to make sure that you have all the variables that are in your .env are also saved in Heroku, in the _Config Vars_ section of the _Settings_ tab.
 
-Select your repo from Github (make sure that your package.json is at the root of your repository) and enable _Automatic Deploys_.
+So click on the _Settings_ tab and then on the _RevealConfigVars_ tab. There you enter the configuration variables.
 
-For the first time, select the manual deploy to deploy your master branch.
+When you are running your app in development it is localhost, in production it should be the address that you can get by clicking on the _Settings_ tab and then _Reveal Config Vars_.
 
-If there is an error, select _More_ > _View Logs_.
+You can see there is already a MONGODB_URI variable configured, so just add this to your mongoose connection link wherever you need it in your project:
 
-## Troubleshooting
+```
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/movie-project" ...)
+```
 
-To limit errors, you can make sure that every variable that you have in your .env is also saved in Heroku, in the _Config Vars_ section of the _Settings_ tab.
-
-### Mongo connection URI
+(without the ... of course...)
+### Possible Problem with the Mongo connection URI
 
 ```
 2019-07-04T20:56:06.674574+00:00 app[web.1]:     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)
@@ -38,19 +40,16 @@ To limit errors, you can make sure that every variable that you have in your .en
 
 This means you are trying to connect to MongoDB via localhost. You need to make sure you are using the correct url.
 
-When you are running your app in development it is localhost, in production it should be the address that you can get by clicking on the _Settings_ tab and then _Reveal Config Vars_.
-
-You can see there is already a MONGODB_URI variable configured, so just add this to your mongoose connection link wherever you need it in your project:
-
-```
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/movie-project" ...)
-```
-
-(without the ... of course...)
-
 Commit the changes and push to the master branch, this should deploy again.
 
+### Deploy from GitHub
+Now, click on the _Deploy_ tab and _Connect to GitHub_.
+
+Select your repo from Github (make sure that your package.json is at the root of your repository) and enable _Automatic Deploys_.
+
+For the first time, select the manual deploy to deploy your master branch.
+
+If there is an error, select _More_ > _View Logs_.
 
 ## Connect to a GUI
 
@@ -63,4 +62,3 @@ You should get a prompt asking if you want to use the URI in your clipboard. Acc
 ### Studio3T
 
 Select *Connect*, *New Connection* and *From URI* on the main tab. Just paste the link and you're set up! Next time, just select the connection.
-
