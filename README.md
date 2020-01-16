@@ -26,6 +26,7 @@ The MONGODB_URI variable on heroku will look something like this:
 mongodb://heroku_s5t34q0n:1hspkmkdnoddpj4tchb01na9ai@ds0345969.mlab.com:29969/heroku_s5t34q0n 
 ```
 
+And in your project:
 ```
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/movie-project" ...)
