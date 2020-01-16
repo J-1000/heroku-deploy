@@ -21,6 +21,11 @@ When you are running your app in development it is localhost, in production it s
 
 You can see there is already a MONGODB_URI variable configured, so just add this to your mongoose connection link wherever you need it in your project:
 
+The MONGODB_URI variable on heroku will look something like this: 
+```
+mongodb://heroku_s5t34q0n:1hspkmkdnoddpj4tchb01na9ai@ds0345969.mlab.com:29969/heroku_s5t34q0n 
+```
+
 ```
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/movie-project" ...)
